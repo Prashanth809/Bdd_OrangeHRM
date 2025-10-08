@@ -59,6 +59,11 @@
     	<artifactId>ashot</artifactId>
     	<version>1.5.4</version>
 	</dependency>
+	<dependency>
+    	<groupId>tech.grasshopper</groupId>
+    	<artifactId>extentreports-cucumber7-adapter</artifactId>
+    	<version>1.14.0</version>
+	</dependency>
 	
   </dependencies>
   <build>
@@ -80,7 +85,7 @@
 	      		<suiteXmlFiles>
 					<suiteXmlFile>${xyz}</suiteXmlFile>
 	      		</suiteXmlFiles>
-	   	   </configuration>
+	   	    </configuration>
          </plugin>
      </plugins>
    </build>

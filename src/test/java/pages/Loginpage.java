@@ -51,29 +51,15 @@ public class Loginpage {
 	@CacheLookup
 	private WebElement submit;
 
-	@FindBy(xpath="//span[text()='PIM']") @CacheLookup
-	private WebElement pim;
-
-	@FindBy(xpath="//*[text()='Add Employee']") @CacheLookup
-	private WebElement AddEmploye;
-
 	@FindBy(xpath="//*[@name='firstName']") @CacheLookup
 	private WebElement firstname;
 
 	@FindBy(xpath="//*[@name='lastName']") @CacheLookup
 	private WebElement lastname;
 
-	@FindBy(xpath="//*[@type='submit']") @CacheLookup
-	private WebElement save;
+	
 
-	@FindBy(xpath="(//div[text()='-- Select --'])[1]") @CacheLookup
-	private WebElement nationality;
-
-	@FindBy(xpath="(//div[text()='-- Select --'])[2]") @CacheLookup
-	private WebElement maritalstatus;
-
-	@FindBy(xpath="(//input[@type='radio'])[1]") @CacheLookup
-	private static WebElement gender_radiobutton;
+	
 
 
 	// Constructor method for connecting to step definition classes and runner classes
@@ -147,72 +133,13 @@ public class Loginpage {
 	public void submit() {
 		wait.until(ExpectedConditions.elementToBeClickable(submit)).click();
 	}
-	public void clickPIM()
-	{
-		wait.until(ExpectedConditions.elementToBeClickable(pim)).click();
-		
-	}
-	public void AddEmployee()
-	{
-		wait.until(ExpectedConditions.elementToBeClickable(AddEmploye)).click();
-	}
+	
 	public void userdetails(String first,String last)
 	{
 		wait.until(ExpectedConditions.visibilityOf(firstname)).sendKeys(first);
 		wait.until(ExpectedConditions.visibilityOf(lastname)).sendKeys(last);
 	}
-	public void clicksave()
-	{
-		wait.until(ExpectedConditions.elementToBeClickable(save)).click();
-	}
-	public void nationality(String Indian)
-	{
-		wait.until(ExpectedConditions.visibilityOf(nationality)).click();
-		Select se=new Select(nationality);
-		se.selectByVisibleText(Indian);
-
-	}
-	public void marrital(int x)
-	{
-		wait.until(ExpectedConditions.visibilityOf(maritalstatus)).click();
-		Select se=new Select(maritalstatus);
-		se.selectByIndex(1);
-
-	}
-	public void gender_radio()
-	{
-
-		wait.until(ExpectedConditions.visibilityOf(gender_radiobutton)).click();
-	}
 	
-	public static void testRadioButton() throws Exception
-	{
-		if (gender_radiobutton.isDisplayed()) {
-			System.out.println("Gender radio button is visible on the page");
-
-			if (gender_radiobutton.isEnabled()) {
-				System.out.println("Gender radio button is enabled on the page");
-
-				// Click the radio button
-				gender_radiobutton.click();
-				Thread.sleep(5000); 
-			} else {
-				System.out.println("Gender radio button is disabled on the page");
-			}
-		} else {
-			System.out.println("Gender radio button is not visible on the page");
-		}
-		
-	}
-	public void gender_select()
-	{
-		// Verify if the radio button is selected
-		if (gender_radiobutton.isSelected())
-		{
-			System.out.println("Gender radio button is selected successfully on the page");
-		} else {
-			System.out.println("Gender radio button is not selected on the page");
-		}
-	}
 }
+
 
